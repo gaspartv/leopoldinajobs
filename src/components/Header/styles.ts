@@ -3,11 +3,14 @@ import styled from "styled-components";
 import { entring } from "../../styles/animations";
 
 export const HeaderStyled = styled.div`
+  width: 100%;
+  min-width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-primary);
-  padding: 16px;
   box-shadow: 0 1px 5px var(--color-primary);
-  min-width: 300px;
 `;
 
 export const NavStyled = styled.div`
@@ -15,6 +18,7 @@ export const NavStyled = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding: 16px;
   gap: 12px;
   > h1 {
     font-size: 30px;
