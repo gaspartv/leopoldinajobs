@@ -21,12 +21,18 @@ interface iUserContext {
   user: iUser | null;
   setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
   registerUser: (data: iUser) => Promise<void>;
+  viewPassword: string;
+  setViewPassword: React.Dispatch<React.SetStateAction<string>>;
+  viewCheckPassword: string;
+  setViewCheckPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const UserContext = createContext({} as iUserContext);
 
 const UserProvider = ({ children }: iUserProviderProps) => {
   const [user, setUser] = useState<iUser | null>(null);
+  const [viewPassword, setViewPassword] = useState("password");
+  const [viewCheckPassword, setViewCheckPassword] = useState("password");
 
   const { setLoad } = useContext(LoadContext);
 
@@ -66,7 +72,17 @@ const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser, registerUser }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        registerUser,
+        viewPassword,
+        setViewPassword,
+        viewCheckPassword,
+        setViewCheckPassword,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

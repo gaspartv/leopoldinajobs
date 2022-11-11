@@ -64,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: var(--font-family-1);  
         background-color: var(--color-primary);
+        min-width: 300px;
     }
 `;
 

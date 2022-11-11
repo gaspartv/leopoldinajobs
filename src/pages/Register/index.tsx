@@ -7,9 +7,17 @@ import { Header } from "../../components/Header";
 import { FormStyled, RegisterStyled } from "./styles";
 import { iUser, UserContext } from "../../contexts/UserContext";
 import { registerSchema } from "../../validations/registerSchema";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 export const Register = () => {
-  const { registerUser } = useContext(UserContext);
+  const {
+    registerUser,
+    viewPassword,
+    setViewPassword,
+    viewCheckPassword,
+    setViewCheckPassword,
+  } = useContext(UserContext);
 
   const {
     register,
@@ -40,7 +48,7 @@ export const Register = () => {
                 <span>
                   {errors.name && (
                     <>
-                      <ErrorIcon color="primary" />
+                      <ErrorIcon sx={{ width: 20, heigh: 20 }} color="error" />
                       <p>{errors.name?.message}</p>
                     </>
                   )}
@@ -57,7 +65,7 @@ export const Register = () => {
                 <span>
                   {errors.surname && (
                     <>
-                      <ErrorIcon color="primary" />
+                      <ErrorIcon sx={{ width: 20, heigh: 20 }} color="error" />
                       <p>{errors.surname?.message}</p>
                     </>
                   )}
@@ -74,7 +82,7 @@ export const Register = () => {
                 <span>
                   {errors.email && (
                     <>
-                      <ErrorIcon color="primary" />
+                      <ErrorIcon sx={{ width: 20, heigh: 20 }} color="error" />
                       <p>{errors.email?.message}</p>
                     </>
                   )}
@@ -85,34 +93,60 @@ export const Register = () => {
                   id="outlined-basic"
                   label="Senha"
                   variant="outlined"
-                  type="text"
+                  type={viewPassword}
                   {...register("password")}
                 />
                 <span>
                   {errors.password && (
                     <>
-                      <ErrorIcon color="primary" />
+                      <ErrorIcon sx={{ width: 20, heigh: 20 }} color="error" />
                       <p>{errors.password?.message}</p>
                     </>
                   )}
                 </span>
+                <div className="view">
+                  {viewPassword === "password" ? (
+                    <VisibilityIcon
+                      color="primary"
+                      onClick={() => setViewPassword("text")}
+                    />
+                  ) : (
+                    <VisibilityOffIcon
+                      color="primary"
+                      onClick={() => setViewPassword("password")}
+                    />
+                  )}
+                </div>
               </div>
               <div>
                 <TextField
                   id="outlined-basic"
                   label="Repetir senha"
                   variant="outlined"
-                  type="text"
+                  type={viewCheckPassword}
                   {...register("checkPassword")}
                 />
                 <span>
                   {errors.checkPassword && (
                     <>
-                      <ErrorIcon color="primary" />
+                      <ErrorIcon sx={{ width: 20, heigh: 20 }} color="error" />
                       <p>{errors.checkPassword?.message}</p>
                     </>
                   )}
                 </span>
+                <div className="view">
+                  {viewCheckPassword === "password" ? (
+                    <VisibilityIcon
+                      color="primary"
+                      onClick={() => setViewCheckPassword("text")}
+                    />
+                  ) : (
+                    <VisibilityOffIcon
+                      color="primary"
+                      onClick={() => setViewCheckPassword("password")}
+                    />
+                  )}
+                </div>
               </div>
             </div>
             <p>

@@ -52,10 +52,25 @@ export const FormStyled = styled.div`
         display: flex;
         flex-direction: column;
         position: relative;
+        .view {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          bottom: 11px;
+          right: 16px;
+          cursor: pointer;
+          :hover {
+            border-radius: 50%;
+            background-color: #00000015;
+          }
+        }
         > span {
           position: absolute;
-          top: 16px;
-          right: 8px;
+          top: 1px;
+          left: 1px;
           cursor: pointer;
           > p {
             max-width: 300px;
@@ -66,7 +81,7 @@ export const FormStyled = styled.div`
             padding: 16px;
             position: absolute;
             bottom: 0;
-            right: 0;
+            left: 0;
             float: right;
             cursor: pointer;
             z-index: 102;
