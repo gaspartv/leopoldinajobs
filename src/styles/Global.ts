@@ -49,17 +49,21 @@ const GlobalStyle = createGlobalStyle`
         --font-family-1: 'Ubuntu', sans-serif;
 
         --color-black: #101010;
-        --color-white: #f0f0f0;
+        --color-white: #F9FCFF;
         --color-primary: #0077ff;
+        --color-red: #f70707;
 
         --color-grey-1: #3d3d3d;
         --color-grey-2: #797979;
         --color-grey-3: #bababa;
 
+        --toastify-color-info: #0077ff;
+        --toastify-color-error: #f70707;
     }
 
     body {
-        font-family: var(--font-family-1);
+        font-family: var(--font-family-1);  
+        background-color: var(--color-primary);
     }
 `;
 
