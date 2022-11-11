@@ -1,16 +1,23 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { TextField, Button, Link } from "@mui/material";
 import ErrorIcon from "@mui/icons-material/Error";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Header } from "../../components/Header";
-import { FormStyled, RegisterStyled } from "./styles";
+import { RegisterStyled } from "./styles";
 import { iUser, UserContext } from "../../contexts/UserContext";
 import { registerSchema } from "../../validations/registerSchema";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import {
+  FormStyled,
+  LinkLoginStyled,
+} from "../../components/FormRegister/styles";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+  const { user } = useContext(UserContext);
+  const navegate = useNavigate();
   const {
     registerUser,
     viewPassword,
@@ -18,6 +25,10 @@ export const Register = () => {
     viewCheckPassword,
     setViewCheckPassword,
   } = useContext(UserContext);
+
+  useEffect(() => {
+    user && navegate("/");
+  });
 
   const {
     register,
@@ -151,28 +162,29 @@ export const Register = () => {
             </div>
             <p>
               Ao clicar em Cadastra, você concorda com nossos
-              <Link href="#" underline="always">
+              <Link href="/terms" underline="always">
                 {" Termos "}
               </Link>
               ,
-              <Link href="#" underline="always">
+              <Link href="privacy" underline="always">
                 {" Política de Privacidade "}
               </Link>
               e
-              <Link href="#" underline="always">
+              <Link href="/cookies" underline="always">
                 {" Política de Cookies"}
               </Link>
               .
             </p>
             <span>
+              <p></p>
               <Button type="submit" variant="contained" disableElevation>
                 Cadastrar
               </Button>
             </span>
           </form>
-          <p>
+          <LinkLoginStyled to="/login">
             Já tem cadastro? Faça login! <span></span>
-          </p>
+          </LinkLoginStyled>
         </FormStyled>
       </RegisterStyled>
     </>
