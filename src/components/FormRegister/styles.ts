@@ -43,6 +43,10 @@ export const FormStyled = styled.div`
       flex-direction: column;
       gap: 12px;
       margin: 16px 0;
+      > span {
+        display: flex;
+        gap: 12px;
+      }
       > div {
         display: flex;
         flex-direction: column;

@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Slide, toast } from "react-toastify";
 import { api } from "../services/api";
 import { postUserApi } from "../services/createUser";
+import { editUserApi } from "../services/editUser";
 import { loginUserApi } from "../services/loginUser";
 import { LoadContext } from "./LoadContext";
 
@@ -17,6 +18,11 @@ export interface iUser {
   surname: string;
   password: string;
   checkPassword: string;
+  gender: string;
+  username: string;
+  day: string;
+  month: string;
+  age: string;
 }
 
 interface iUserContext {
@@ -28,6 +34,7 @@ interface iUserContext {
   viewCheckPassword: string;
   setViewCheckPassword: React.Dispatch<React.SetStateAction<string>>;
   loginUser: (log: iUser) => Promise<void>;
+  editUser: (data: any) => Promise<void>;
 }
 
 export const UserContext = createContext({} as iUserContext);
@@ -118,7 +125,9 @@ const UserProvider = ({ children }: iUserProviderProps) => {
         transition: Slide,
         theme: "light",
       });
-      navigate(toNavigate, { replace: true });
+      response.user.completed
+        ? navigate(toNavigate, { replace: true })
+        : navigate("/registration1");
     } catch {
       toast.error("E-mail ou senha incorreto!", {
         position: "top-center",
@@ -141,6 +150,17 @@ const UserProvider = ({ children }: iUserProviderProps) => {
     localStorage.clear();
   };
 
+  const editUser = async (data: any) => {
+    setLoad(true);
+    try {
+      await editUserApi(data, user?.id);
+      navigate("/registration2");
+    } catch {
+    } finally {
+      setLoad(false);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -152,6 +172,7 @@ const UserProvider = ({ children }: iUserProviderProps) => {
         viewCheckPassword,
         setViewCheckPassword,
         loginUser,
+        editUser,
       }}
     >
       {children}
