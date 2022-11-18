@@ -1,13 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, TextField } from "@mui/material";
+import ErrorIcon from "@mui/icons-material/Error";
+
+import { iUser } from "../../contexts/UserContext";
+import { recoverSchema } from "../../validations/recoverSchema";
+
 import { FormStyled } from "../../components/FormRegister/styles";
 import { Header } from "../../components/Header";
+
 import { RecoverStyled } from "./styles";
-import ErrorIcon from "@mui/icons-material/Error";
-import { useForm } from "react-hook-form";
-import { iUser } from "../../contexts/UserContext";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { recoverSchema } from "../../validations/recoverSchema";
-import { useNavigate } from "react-router-dom";
 
 export const Recover = () => {
   const navegate = useNavigate();
@@ -58,7 +61,12 @@ export const Recover = () => {
               >
                 Cancelar
               </Button>
-              <Button disabled type="submit" variant="contained" disableElevation>
+              <Button
+                disabled
+                type="submit"
+                variant="contained"
+                disableElevation
+              >
                 Pesquisar
               </Button>
             </span>

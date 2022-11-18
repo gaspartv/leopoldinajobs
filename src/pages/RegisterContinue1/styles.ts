@@ -6,4 +6,5 @@ export const CompleteStyled = styled.div`
   padding-top: 16px;
   align-items: center;
   gap: 16px;
+  margin-bottom: 20px;
 `;

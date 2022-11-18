@@ -1,10 +1,5 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Container } from "../../components/Container";
-import { FormStyled } from "../../components/FormRegister/styles";
-import { Header } from "../../components/Header";
-import { iUser, UserContext } from "../../contexts/UserContext";
-import { CompleteStyled } from "./styles";
 import {
   Box,
   Button,
@@ -22,6 +17,14 @@ import {
   Stepper,
   TextField,
 } from "@mui/material";
+
+import { iUser, UserContext } from "../../contexts/UserContext";
+
+import { Container } from "../../components/Container";
+import { FormStyled } from "../../components/FormRegister/styles";
+import { Header } from "../../components/Header";
+
+import { CompleteStyled } from "./styles";
 
 export const steps = ["Informações pessoais", "Biográfia", "Finalizar"];
 
@@ -50,7 +53,7 @@ export const RegisterContinue1 = () => {
             sx={{
               padding: 2,
               backgroundColor: "white",
-              width: "50%",
+              width: "100%",
               maxWidth: 350,
               borderRadius: 1,
             }}
@@ -108,7 +111,7 @@ export const RegisterContinue1 = () => {
                   </RadioGroup>
                 </FormControl>
                 <span>
-                  <FormControl sx={{ width: 80 }}>
+                  <FormControl sx={{ width: 100 }}>
                     <InputLabel id="demo-select-small">Dia</InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
@@ -154,7 +157,7 @@ export const RegisterContinue1 = () => {
                       <MenuItem value={31}>31</MenuItem>
                     </Select>
                   </FormControl>
-                  <FormControl sx={{ minWidth: 80 }}>
+                  <FormControl sx={{ minWidth:100 }}>
                     <InputLabel id="demo-simple-select-label">Mês</InputLabel>
                     <Select
                       labelId="demo-simple-select-label"

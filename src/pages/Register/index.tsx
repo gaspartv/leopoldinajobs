@@ -1,19 +1,21 @@
 import { useContext, useEffect } from "react";
-import { TextField, Button, Link } from "@mui/material";
-import ErrorIcon from "@mui/icons-material/Error";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Header } from "../../components/Header";
-import { RegisterStyled } from "./styles";
-import { iUser, UserContext } from "../../contexts/UserContext";
-import { registerSchema } from "../../validations/registerSchema";
+import { TextField, Button, Link } from "@mui/material";
+import ErrorIcon from "@mui/icons-material/Error";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
+import { Header } from "../../components/Header";
+import { iUser, UserContext } from "../../contexts/UserContext";
+import { registerSchema } from "../../validations/registerSchema";
+
+import { RegisterStyled } from "./styles";
 import {
   FormStyled,
   LinkLoginStyled,
 } from "../../components/FormRegister/styles";
-import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const { user } = useContext(UserContext);

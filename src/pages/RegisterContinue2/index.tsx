@@ -1,10 +1,12 @@
 import { Box, Step, StepLabel, Stepper } from "@mui/material";
+
+import { steps } from "../RegisterContinue1";
+
 import { Container } from "../../components/Container";
 import { FormStyled } from "../../components/FormRegister/styles";
 import { Header } from "../../components/Header";
-import { steps } from "../RegisterContinue1";
-import { CompleteStyled } from "./styles";
 
+import { CompleteStyled } from "./styles";
 
 export const RegisterContinue2 = () => {
   return (
@@ -16,7 +18,7 @@ export const RegisterContinue2 = () => {
             sx={{
               padding: 2,
               backgroundColor: "white",
-              width: "50%",
+              width: "100%",
               maxWidth: 350,
               borderRadius: 1,
             }}

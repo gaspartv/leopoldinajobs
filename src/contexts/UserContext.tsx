@@ -1,11 +1,13 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Slide, toast } from "react-toastify";
+
 import { api } from "../services/api";
+import { LoadContext } from "./LoadContext";
+
 import { postUserApi } from "../services/createUser";
 import { editUserApi } from "../services/editUser";
 import { loginUserApi } from "../services/loginUser";
-import { LoadContext } from "./LoadContext";
 
 interface iUserProviderProps {
   children: React.ReactNode;
@@ -18,11 +20,11 @@ export interface iUser {
   surname: string;
   password: string;
   checkPassword: string;
-  gender: string;
-  username: string;
-  day: string;
-  month: string;
-  age: string;
+  gender?: string;
+  username?: string;
+  day?: string;
+  month?: string;
+  age?: string;
 }
 
 interface iUserContext {

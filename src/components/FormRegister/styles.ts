@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import { entring } from "../../styles/animations";
 
 export const FormStyled = styled.div`
@@ -45,6 +46,7 @@ export const FormStyled = styled.div`
       margin: 16px 0;
       > span {
         display: flex;
+        justify-content: space-between;
         gap: 12px;
       }
       > div {

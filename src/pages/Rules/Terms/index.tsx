@@ -1,4 +1,5 @@
 import { Header } from "../../../components/Header";
+
 import { TermsStyled } from "./styles";
 
 export const Terms = () => {

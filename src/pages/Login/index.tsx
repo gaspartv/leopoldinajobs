@@ -1,19 +1,21 @@
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, TextField } from "@mui/material";
-import { useForm } from "react-hook-form";
+import ErrorIcon from "@mui/icons-material/Error";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
+import { Header } from "../../components/Header";
+import { iUser, UserContext } from "../../contexts/UserContext";
+import { loginSchema } from "../../validations/loginSchema";
+
+import { LoginStyled } from "./styles";
 import {
   FormStyled,
   LinkLoginStyled,
 } from "../../components/FormRegister/styles";
-import { Header } from "../../components/Header";
-import { iUser, UserContext } from "../../contexts/UserContext";
-import { loginSchema } from "../../validations/loginSchema";
-import { LoginStyled } from "./styles";
-import ErrorIcon from "@mui/icons-material/Error";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const { user, viewPassword, setViewPassword, loginUser } =

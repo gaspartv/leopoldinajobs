@@ -1,5 +1,5 @@
-import { Div } from "./styles";
 import spinner from "../../assets/spinner.svg";
+import { Div } from "./styles";
 
 export const Loading = () => {
   return (
