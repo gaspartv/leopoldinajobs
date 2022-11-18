@@ -19,7 +19,7 @@ const App = () => {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> 
       <RouterMain />
     </>
   );
